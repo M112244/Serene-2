@@ -1,0 +1,131 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #fafafa;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  font-family: 'Cursive', sans-serif;
+  font-size: 24px;
+  color: #d4a373;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.hero {
+  background-image: url('hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  text-decoration: none;
+  color: #fff;
+  background: #d4a373;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.collections {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.collections h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.collection-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.newsletter {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fff;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.newsletter h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.newsletter input {
+  padding: 10px;
+  font-size: 16px;
+  width: 70%;
+  max-width: 400px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.newsletter button {
+  padding: 10px 20px;
+  background: #d4a373;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+footer .social-links a {
+  color: #d4a373;
+  margin: 0 10px;
+  text-decoration: none;
+}
