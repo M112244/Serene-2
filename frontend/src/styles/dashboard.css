@@ -281,6 +281,259 @@
   font-size: 0.9rem;
 }
 
+/* Manager & Admin Specific */
+.dashboard-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+.order-row, .driver-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.3s ease;
+}
+
+.order-row:hover, .driver-row:hover {
+  background-color: #f9fafb;
+}
+
+.order-id {
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+}
+
+.order-customer {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.order-liters {
+  color: #1f2937;
+  font-weight: 600;
+  margin: 0;
+}
+
+.order-time {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0 0;
+}
+
+.driver-info {
+  flex: 1;
+}
+
+.driver-name {
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+}
+
+.driver-stats {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.driver-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.status-dot.offline {
+  background-color: #6b7280;
+}
+
+.driver-rating {
+  color: #1f2937;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Job Card */
+.job-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.job-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.job-details {
+  margin-bottom: 1rem;
+}
+
+.job-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.job-detail-row .label {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.job-detail-row .value {
+  color: #1f2937;
+  font-weight: 500;
+  margin: 0;
+}
+
+.job-actions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.job-actions .btn {
+  flex: 1;
+}
+
+/* System Status */
+.system-status {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+}
+
+.status-label {
+  color: #374151;
+  font-weight: 500;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.status-indicator.status-operational {
+  color: #10b981;
+}
+
+.status-indicator.status-warning {
+  color: #f59e0b;
+}
+
+.status-indicator.status-error {
+  color: #ef4444;
+}
+
+/* Activity List */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border-left: 3px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+  background-color: #f9fafb;
+  border-left-color: #3b82f6;
+}
+
+.activity-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
+  color: #6b7280;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-message {
+  margin: 0 0 0.25rem 0;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+.activity-time {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* Admin Actions */
+.admin-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.admin-actions .btn {
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .dashboard-container {
     padding: 1rem;
@@ -294,9 +547,17 @@
     grid-template-columns: 1fr;
   }
 
+  .dashboard-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
   .order-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+
+  .admin-actions {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }

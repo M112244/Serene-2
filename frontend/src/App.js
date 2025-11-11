@@ -9,6 +9,10 @@ import RegisterPage from './pages/RegisterPage';
 import HomeownerDashboard from './pages/HomeownerDashboard';
 import DriverDashboard from './pages/DriverDashboard';
 import OrderRefill from './pages/OrderRefill';
+import MaintenanceRequestPage from './pages/MaintenanceRequestPage';
+import FleetManagerDashboard from './pages/FleetManagerDashboard';
+import TechnicianDashboard from './pages/TechnicianDashboard';
+import AdminDashboard from './pages/AdminDashboard';
 
 // Styles
 import './styles/index.css';
@@ -58,6 +62,14 @@ const AppRoutes = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/homeowner/maintenance/:tankId"
+          element={
+            <ProtectedRoute allowedRoles={['homeowner']}>
+              <MaintenanceRequestPage />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Driver Routes */}
         <Route
@@ -65,6 +77,36 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute allowedRoles={['driver']}>
               <DriverDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Technician Routes */}
+        <Route
+          path="/technician/dashboard"
+          element={
+            <ProtectedRoute allowedRoles={['technician']}>
+              <TechnicianDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Fleet Manager Routes */}
+        <Route
+          path="/manager/dashboard"
+          element={
+            <ProtectedRoute allowedRoles={['fleet_manager']}>
+              <FleetManagerDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Admin Routes */}
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminDashboard />
             </ProtectedRoute>
           }
         />
