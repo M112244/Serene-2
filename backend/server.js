@@ -8,6 +8,9 @@ const authRoutes = require('./routes/authRoutes');
 const tankRoutes = require('./routes/tankRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const maintenanceRoutes = require('./routes/maintenanceRoutes');
+const walletRoutes = require('./routes/walletRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
+const analyticsRoutes = require('./routes/analyticsRoutes');
 
 const app = express();
 
@@ -26,6 +29,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/tanks', tankRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/maintenance', maintenanceRoutes);
+app.use('/api/wallet', walletRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
