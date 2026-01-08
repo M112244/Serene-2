@@ -3,64 +3,313 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serene - Luxury Floral Designs</title>
+  <title>ConstructHub - Unified Construction Management Platform</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="logo">Serene</div>
-    <nav>
-      <ul>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="logo">
+      <i class="fas fa-hard-hat"></i>
+      <span>ConstructHub</span>
+    </div>
+    <nav class="main-nav">
+      <a href="#dashboard" class="nav-link active" data-view="dashboard">
+        <i class="fas fa-home"></i> Dashboard
+      </a>
+      <a href="#projects" class="nav-link" data-view="projects">
+        <i class="fas fa-project-diagram"></i> Projects
+      </a>
+      <a href="#team" class="nav-link" data-view="team">
+        <i class="fas fa-users"></i> Team
+      </a>
     </nav>
+    <div class="user-profile">
+      <i class="fas fa-user-circle"></i>
+      <span>Admin</span>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Where Luxury Blooms Effortlessly</h1>
-      <p>Experience elegance with our handcrafted floral designs.</p>
-      <a href="#collections" class="cta-button">Explore Our Collection</a>
-    </div>
-  </section>
-
-  <section id="collections" class="collections">
-    <h2>Our Featured Collections</h2>
-    <div class="collection-grid">
-      <div class="collection-item">
-        <img src="bouquet1.jpg" alt="Bouquet 1">
-        <p>Elegant Roses</p>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Dashboard View -->
+    <section id="dashboard-view" class="view-section active">
+      <div class="view-header">
+        <h1>Dashboard Overview</h1>
+        <button class="btn-primary" id="createProjectBtn">
+          <i class="fas fa-plus"></i> Create New Project
+        </button>
       </div>
-      <div class="collection-item">
-        <img src="bouquet2.jpg" alt="Bouquet 2">
-        <p>Classic Lilies</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="totalProjects">0</h3>
+            <p>Total Projects</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="activeProjects">0</h3>
+            <p>Active Projects</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="totalTeamMembers">0</h3>
+            <p>Team Members</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="totalStakeholders">0</h3>
+            <p>Stakeholders</p>
+          </div>
+        </div>
       </div>
-      <div class="collection-item">
-        <img src="bouquet3.jpg" alt="Bouquet 3">
-        <p>Seasonal Blossoms</p>
+
+      <div class="recent-projects">
+        <h2>Recent Projects</h2>
+        <div id="recentProjectsList" class="projects-list">
+          <div class="empty-state">
+            <i class="fas fa-folder-open"></i>
+            <p>No projects yet. Create your first project to get started!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects View -->
+    <section id="projects-view" class="view-section">
+      <div class="view-header">
+        <h1>All Projects</h1>
+        <button class="btn-primary" id="createProjectBtn2">
+          <i class="fas fa-plus"></i> Create New Project
+        </button>
+      </div>
+
+      <div id="projectsList" class="projects-grid">
+        <div class="empty-state">
+          <i class="fas fa-folder-open"></i>
+          <p>No projects yet. Create your first project to get started!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team View -->
+    <section id="team-view" class="view-section">
+      <div class="view-header">
+        <h1>Team Management</h1>
+        <button class="btn-primary" id="addTeamMemberBtn">
+          <i class="fas fa-user-plus"></i> Add Team Member
+        </button>
+      </div>
+
+      <div class="team-roles">
+        <div class="role-section">
+          <h3><i class="fas fa-user-tie"></i> Clients</h3>
+          <div id="clientsList" class="members-list"></div>
+        </div>
+        <div class="role-section">
+          <h3><i class="fas fa-drafting-compass"></i> Architects</h3>
+          <div id="architectsList" class="members-list"></div>
+        </div>
+        <div class="role-section">
+          <h3><i class="fas fa-couch"></i> Interior Designers</h3>
+          <div id="interiorDesignersList" class="members-list"></div>
+        </div>
+        <div class="role-section">
+          <h3><i class="fas fa-hard-hat"></i> Contractors</h3>
+          <div id="contractorsList" class="members-list"></div>
+        </div>
+        <div class="role-section">
+          <h3><i class="fas fa-truck"></i> Suppliers</h3>
+          <div id="suppliersList" class="members-list"></div>
+        </div>
+        <div class="role-section">
+          <h3><i class="fas fa-tools"></i> Service Providers</h3>
+          <div id="serviceProvidersList" class="members-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Create Project Modal -->
+  <div id="createProjectModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create New Project Workspace</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <form id="createProjectForm">
+        <div class="form-group">
+          <label for="projectName">Project Name</label>
+          <input type="text" id="projectName" required placeholder="Enter project name">
+        </div>
+        <div class="form-group">
+          <label for="projectDescription">Description</label>
+          <textarea id="projectDescription" rows="3" placeholder="Brief project description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="projectLocation">Location</label>
+          <input type="text" id="projectLocation" required placeholder="Project location">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="projectStartDate">Start Date</label>
+            <input type="date" id="projectStartDate" required>
+          </div>
+          <div class="form-group">
+            <label for="projectEndDate">Expected End Date</label>
+            <input type="date" id="projectEndDate" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="projectBudget">Budget</label>
+          <input type="number" id="projectBudget" placeholder="Project budget" min="0">
+        </div>
+        <div class="form-group">
+          <label for="projectStatus">Status</label>
+          <select id="projectStatus" required>
+            <option value="planning">Planning</option>
+            <option value="active">Active</option>
+            <option value="on-hold">On Hold</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelProjectBtn">Cancel</button>
+          <button type="submit" class="btn-primary">Create Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Project Details Modal -->
+  <div id="projectDetailsModal" class="modal">
+    <div class="modal-content large">
+      <div class="modal-header">
+        <h2 id="projectDetailsTitle">Project Details</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="project-details-content">
+        <div class="project-info">
+          <h3>Project Information</h3>
+          <div id="projectDetailsInfo"></div>
+        </div>
+        <div class="project-team">
+          <div class="team-header">
+            <h3>Team Members</h3>
+            <button class="btn-small" id="assignTeamBtn">
+              <i class="fas fa-user-plus"></i> Assign Team
+            </button>
+          </div>
+          <div id="projectTeamList"></div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="newsletter">
-    <h2>Stay Updated</h2>
-    <p>Subscribe to our newsletter for exclusive offers and updates.</p>
-    <form id="newsletter-form">
-      <input type="email" id="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2024 Serene. All Rights Reserved.</p>
-    <div class="social-links">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">Pinterest</a>
+  <!-- Assign Team Modal -->
+  <div id="assignTeamModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Assign Team Members</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <form id="assignTeamForm">
+        <div class="form-group">
+          <label for="teamMemberRole">Role</label>
+          <select id="teamMemberRole" required>
+            <option value="">Select Role</option>
+            <option value="client">Client</option>
+            <option value="architect">Architect</option>
+            <option value="interior">Interior Designer</option>
+            <option value="contractor">Contractor</option>
+            <option value="supplier">Supplier</option>
+            <option value="service">Service Provider</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="teamMemberName">Name</label>
+          <input type="text" id="teamMemberName" required placeholder="Enter member name">
+        </div>
+        <div class="form-group">
+          <label for="teamMemberEmail">Email</label>
+          <input type="email" id="teamMemberEmail" required placeholder="Enter email address">
+        </div>
+        <div class="form-group">
+          <label for="teamMemberPhone">Phone</label>
+          <input type="tel" id="teamMemberPhone" placeholder="Enter phone number">
+        </div>
+        <div class="form-group">
+          <label for="teamMemberCompany">Company/Organization</label>
+          <input type="text" id="teamMemberCompany" placeholder="Enter company name">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelTeamBtn">Cancel</button>
+          <button type="submit" class="btn-primary">Add to Team</button>
+        </div>
+      </form>
     </div>
-  </footer>
+  </div>
+
+  <!-- Add Team Member Modal -->
+  <div id="addTeamMemberModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Team Member</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <form id="addTeamMemberForm">
+        <div class="form-group">
+          <label for="newMemberRole">Role</label>
+          <select id="newMemberRole" required>
+            <option value="">Select Role</option>
+            <option value="client">Client</option>
+            <option value="architect">Architect</option>
+            <option value="interior">Interior Designer</option>
+            <option value="contractor">Contractor</option>
+            <option value="supplier">Supplier</option>
+            <option value="service">Service Provider</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="newMemberName">Name</label>
+          <input type="text" id="newMemberName" required placeholder="Enter member name">
+        </div>
+        <div class="form-group">
+          <label for="newMemberEmail">Email</label>
+          <input type="email" id="newMemberEmail" required placeholder="Enter email address">
+        </div>
+        <div class="form-group">
+          <label for="newMemberPhone">Phone</label>
+          <input type="tel" id="newMemberPhone" placeholder="Enter phone number">
+        </div>
+        <div class="form-group">
+          <label for="newMemberCompany">Company/Organization</label>
+          <input type="text" id="newMemberCompany" placeholder="Enter company name">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary close-modal">Cancel</button>
+          <button type="submit" class="btn-primary">Add Member</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
